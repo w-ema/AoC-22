@@ -22,10 +22,11 @@ for i in rearrangement_procedure:
     numbers_of_steps = i.split()[1]
     present_stack = i.split()[3]
     destination_stack = i.split()[5]
-    for j in range(int(numbers_of_steps)):
-        moved_crate = k[present_stack][-1]
-        k[destination_stack].append(moved_crate)
-        del k[present_stack][-1]
+    moved_crate = k[present_stack][-int(numbers_of_steps):]
+    print(numbers_of_steps, moved_crate)
+    for j in moved_crate:
+        k[destination_stack].append(j)
+    del k[present_stack][-int(numbers_of_steps):]
 
 ans = ''
 for i in k.keys():
